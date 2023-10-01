@@ -21,11 +21,11 @@ export interface IFetchSlotsResponse {
   site_admin: boolean
 }
 
-export const getUsers = async () => {
+export const getUsers = async (since?: number) => {
   const request = axios.create()
 
   const { data } = await request.get<IFetchSlotsResponse[]>(
-    'https://api.github.com/users'
+    `https://api.github.com/users${(since !== undefined) && (since !== 0) ? `?since=${since}` : ''}`
   )
 
   return data

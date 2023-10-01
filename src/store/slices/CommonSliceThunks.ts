@@ -6,6 +6,6 @@ export const getAllUsers = createAsyncThunk<
 Awaited<ReturnType<typeof getUsers>>,
 void,
 TThunkConfig
->('commonSlice/getUsers', async (_, { getState }) => {
+>('commonSlice/getUsers', async (_) => {
   return await getUsers()
 })
